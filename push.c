@@ -1,54 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkarg.c                                         :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 00:15:53 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/06 02:11:14 by amdouyah         ###   ########.fr       */
+/*   Created: 2023/04/06 01:54:07 by amdouyah          #+#    #+#             */
+/*   Updated: 2023/04/06 02:20:07 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *s)
+void	pa(t_stack *s_a, t_stack *s_b)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	exit_err(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	checkdup(int *num, int l)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < l)
+	if (s_b->top >= 0)
 	{
-		j = i + 1;
-		while (j < l)
-		{
-			if (num[i] == num[j])
-				exit_err();
-			j++;
-		}
-		i++;
+		push(s_a, s_b->stack_arr[s_b->top]);
+		pop(s_b);
 	}
 }
 
-void	check_lkhawi(char *str)
+void	pb(t_stack *s_a, t_stack *s_b)
 {
-	if (str[0] == '\0')
-		exit_err();
+	if (s_a->top >= 0)
+	{
+		push(s_b, s_a->stack_arr[s_a->top]);
+		pop(s_a);
+	}
 }

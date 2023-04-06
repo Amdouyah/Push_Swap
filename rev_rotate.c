@@ -1,54 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkarg.c                                         :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 00:15:53 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/06 02:11:14 by amdouyah         ###   ########.fr       */
+/*   Created: 2023/04/06 02:46:09 by amdouyah          #+#    #+#             */
+/*   Updated: 2023/04/06 02:51:30 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *s)
+void	rra(t_stack *s_a)
 {
-	int	i;
-
+	int i;
+	
 	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	exit_err(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	checkdup(int *num, int l)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < l)
+	while (i < s_a->top)
 	{
-		j = i + 1;
-		while (j < l)
-		{
-			if (num[i] == num[j])
-				exit_err();
-			j++;
-		}
+		ft_swap(&s_a->stack_arr[i], &s_a->stack_arr[i + 1]);
 		i++;
 	}
 }
 
-void	check_lkhawi(char *str)
+void	rrb(t_stack *s_b)
 {
-	if (str[0] == '\0')
-		exit_err();
+	int i;
+	
+	i = 0;
+	while (i < s_b->top)
+	{
+		ft_swap(&s_b->stack_arr[i], &s_b->stack_arr[i + 1]);
+		i++;
+	}
+}
+
+void	rrr(t_stack *s_a, t_stack *s_b)
+{
+	rra(s_a);
+	rrb(s_b);
 }

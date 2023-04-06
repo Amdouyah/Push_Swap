@@ -6,19 +6,18 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 23:15:52 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/03 05:38:02 by amdouyah         ###   ########.fr       */
+/*   Updated: 2023/04/04 03:24:27 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int counter(char **av)
+int	counter(char **av)
 {
-	int i;
-	int j;
-	int l;
-	char **str;
+	int		i;
+	int		j;
+	int		l;
+	char	**str;
 
 	i = 1;
 	l = 0;
@@ -26,17 +25,17 @@ int counter(char **av)
 	{
 		j = 0;
 		str = ft_split(av[i], ' ');
-		while(str[j])
+		while (str[j])
 		{
 			j++;
-			l++;	
+			l++;
 		}
-		i++;		
+		i++;
 	}
 	return (l);
 }
 
-int *store_variables(char **av, int l)
+int	*store_variables(char **av, int l)
 {
 	int		i;
 	int		j;
@@ -50,12 +49,11 @@ int *store_variables(char **av, int l)
 	while (av[++i])
 	{
 		check_lkhawi(av[i]);
-		str = ft_split(av[i] , ' ');
-		checkdigit(str);
+		str = ft_split(av[i], ' ');
 		j = 0;
-		while(str[j])
+		while (str[j])
 		{
-			if(ft_atoi(str[j]) < INT_MIN || ft_atoi(str[j]) > INT_MAX)
+			if (ft_atoi(str[j]) < INT_MIN || ft_atoi(str[j]) > INT_MAX)
 				exit_err();
 			num[a++] = ft_atoi(str[j++]);
 		}
@@ -63,32 +61,11 @@ int *store_variables(char **av, int l)
 	return (num);
 }
 
-
-void	checkdigit(char **str)
+int	main(int ac, char **av)
 {
+	int	l;
+	int	*n;		
 	int	i;
-	int	j;
-
-	i = 0;
-	while (str[i])
-	{
-		j = 0;
-		while (str[i][j])
-		{
-			if (!(str[i][j] >= '0' && str[i][j] <= '9') && (str[i][j] != '-' && str[i][j] != '+'))
-				exit_err();
-			j++;
-	
-		}
-		i++;
-	}
-}
-
-int main(int ac, char **av)
-{
-	int l;
-	int *n;		
-	int i;
 
 	i = 0;
 	l = counter(av);

@@ -1,54 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkarg.c                                         :+:      :+:    :+:   */
+/*   Implementation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 00:15:53 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/06 02:11:14 by amdouyah         ###   ########.fr       */
+/*   Created: 2023/04/06 01:20:48 by amdouyah          #+#    #+#             */
+/*   Updated: 2023/04/06 02:16:37 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strlen(char *s)
+void	push(t_stack *stack,int num)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	stack->top++;
+	stack->stack_arr[stack->top] = num;
 }
 
-void	exit_err(void)
+void	pop(t_stack *stack)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	checkdup(int *num, int l)
-{
+	int	*arr;
 	int	i;
-	int	j;
 
+	arr = malloc(sizeof(int) * stack->top);
+	if (!arr)
+		return (NULL);
 	i = 0;
-	while (i < l)
+	while (i < stack->top)
 	{
-		j = i + 1;
-		while (j < l)
-		{
-			if (num[i] == num[j])
-				exit_err();
-			j++;
-		}
+		arr[i] = stack->stack_arr[i];
 		i++;
 	}
-}
-
-void	check_lkhawi(char *str)
-{
-	if (str[0] == '\0')
-		exit_err();
+	free(stack->stack_arr);
+	stack->stack_arr = arr;
+	stack->top--;
 }
