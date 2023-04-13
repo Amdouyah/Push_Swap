@@ -6,7 +6,7 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 23:15:52 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/04 03:24:27 by amdouyah         ###   ########.fr       */
+/*   Updated: 2023/04/13 04:37:59 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,32 @@ int	*store_variables(char **av, int l)
 
 int	main(int ac, char **av)
 {
-	int	l;
-	int	*n;		
-	int	i;
+	int		l;
+	int		*n;
+	int		i;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-	i = 0;
-	l = counter(av);
-	n = store_variables(av, l);
-	checkdup(n, l);
+	stack_a = NULL;
+	stack_b = NULL;
+	if (ac > 1)
+	{
+		i = 0;
+		l = counter(av);
+		n = store_variables(av, l);
+		checkdup(n, l);
+		stack_a = fill_stack(stack_a, l, n);
+		stack_b = allocate_stacks(stack_b, l);
+		while (i < l)
+			stack_b->stack_arr[i++] = 0;
+		i = 0;
+		stack_a->top = l - 1;
+		stack_b->top = 0;
+		if (l == 2)
+			sort_2(stack_a);
+		else if (l == 3)
+			sort_three(stack_a);
+		else if (l == 5)
+			sort_five(stack_a, stack_b);
+	}
 }

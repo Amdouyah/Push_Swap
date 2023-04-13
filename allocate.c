@@ -1,48 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   allocate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/06 02:46:09 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/08 01:57:28 by amdouyah         ###   ########.fr       */
+/*   Created: 2023/04/07 03:46:37 by amdouyah          #+#    #+#             */
+/*   Updated: 2023/04/13 04:34:53 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *s_a, int a)
+//allocate memory for array in t_stack
+//return pointer to allocated t_stack struct
+t_stack	*allocate_stacks(t_stack *stack, int l)
 {
-	int i;
-	
-	i = 0;
-	while (i < s_a->top)
-	{
-		ft_swap(&s_a->stack_arr[i], &s_a->stack_arr[i + 1]);
-		i++;
-	}
-	if (a == 1)
-		write(1, "rra\n", 4);
+	stack = malloc(sizeof(t_stack));
+	stack->stack_arr = malloc(sizeof(int) * l);
+	if (!stack)
+		return (NULL);
+	return (stack);
 }
 
-void	rrb(t_stack *s_b, int a)
+t_stack	*fill_stack(t_stack *stack, int l, int *n)
 {
-	int i;
-	
-	i = 0;
-	while (i < s_b->top)
-	{
-		ft_swap(&s_b->stack_arr[i], &s_b->stack_arr[i + 1]);
-		i++;
-	}
-	if (a == 1)
-		write(1, "rrb\n", 4);
-}
+	int	i;
+	int	j;
 
-void	rrr(t_stack *s_a, t_stack *s_b)
-{
-	rra(s_a, 0);
-	rrb(s_b, 0);
-	write(1, "rrr\n", 4);
+	stack = allocate_stacks(stack, l);
+	i = 0;
+	j = l - 1;
+	while (i < l)
+	{
+		stack->stack_arr[i] = n[j];
+		i++;
+		j--;
+	}
+	return (stack);
 }

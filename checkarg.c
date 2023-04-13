@@ -6,7 +6,7 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 00:15:53 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/06 02:11:14 by amdouyah         ###   ########.fr       */
+/*   Updated: 2023/04/13 04:35:25 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strlen(char *s)
 
 void	exit_err(void)
 {
-	write(2, "Error\n", 6);
+	write (2, "Error\n", 6);
 	exit(1);
 }
 
