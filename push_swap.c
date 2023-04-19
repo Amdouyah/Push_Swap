@@ -6,7 +6,7 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 23:15:52 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/13 04:37:59 by amdouyah         ###   ########.fr       */
+/*   Updated: 2023/04/19 09:43:58 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,15 @@ int	main(int ac, char **av)
 		checkdup(n, l);
 		stack_a = fill_stack(stack_a, l, n);
 		stack_b = allocate_stacks(stack_b, l);
-		while (i < l)
-			stack_b->stack_arr[i++] = 0;
-		i = 0;
 		stack_a->top = l - 1;
-		stack_b->top = 0;
+		stack_b->top = -1;
 		if (l == 2)
 			sort_2(stack_a);
 		else if (l == 3)
 			sort_three(stack_a);
 		else if (l == 5)
 			sort_five(stack_a, stack_b);
+		else
+			range(stack_a, stack_b, l);
 	}
 }

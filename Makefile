@@ -13,7 +13,8 @@ SRC = push_swap.c \
 	 rotate.c \
 	 swap.c \
 	 allocate.c \
-	 sort.c
+	 sort.c \
+	 range.c \
 
 all : $(NAME)
 

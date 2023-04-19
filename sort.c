@@ -6,7 +6,7 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:22:19 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/13 04:32:15 by amdouyah         ###   ########.fr       */
+/*   Updated: 2023/04/19 06:13:19 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void print_stack(t_stack *stack)
 {
 	int i = stack->top;
 	// int j = 0;
-	while (i >= 0)
+	while (i>=0)
 	{
-		printf("indis[%i] %i\n", i, stack->stack_arr[i]);
+		printf("stack is :[ %i ]\n", stack->stack_arr[i]);
 		// j++;
 		i--;
 	}
@@ -77,15 +77,16 @@ void print_stack(t_stack *stack)
 void sort_five(t_stack *stack_a, t_stack *stack_b)
 {
 	move_num_to_top_a(stack_a, get_min(stack_a));
-	pb(stack_a, stack_b, 1);
+	pb(stack_a, stack_b);
 	move_num_to_top_a(stack_a, get_min(stack_a));
-	pb(stack_a, stack_b, 1);
+	pb(stack_a, stack_b);
 	sort_three(stack_a);
-	pa(stack_a, stack_b, 1);
-	pa(stack_a, stack_b, 1);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }
+
 void	sort_2(t_stack *stack)
 {
-	if (stack->stack_arr[stack->top] > (stack->stack_arr[stack->top -1]))
+	if (stack->stack_arr[stack->top] > (stack->stack_arr[stack->top - 1]))
 		sa(stack, 1);
 }
