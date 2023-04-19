@@ -6,11 +6,12 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 02:20:14 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/19 03:35:10 by amdouyah         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:12:40 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void	ra(t_stack *a, int n)
 {
 	int	first;

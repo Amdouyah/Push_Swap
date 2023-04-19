@@ -7,14 +7,16 @@ FLAGS = -Wall -Wextra -Werror
 SRC = push_swap.c \
  	 func.c \
 	 checkarg.c \
-	 Implementation.c \
 	 push.c \
 	 rev_rotate.c \
 	 rotate.c \
 	 swap.c \
 	 allocate.c \
-	 sort.c \
+	 help.c \
 	 range.c \
+	 sorting.c \
+	 check_errors.c
+
 
 all : $(NAME)
 

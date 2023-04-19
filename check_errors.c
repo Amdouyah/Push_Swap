@@ -1,48 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/06 02:46:09 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/19 10:12:08 by amdouyah         ###   ########.fr       */
+/*   Created: 2023/04/19 10:28:27 by amdouyah          #+#    #+#             */
+/*   Updated: 2023/04/19 10:28:40 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *s_a, int a)
+int	*store_variables(char **av, int l)
 {
-	int	i;
+	int		i;
+	int		j;
+	int		a;
+	char	**str;
+	int		*num;
 
+	num = malloc(sizeof (int) * l);
+	a = 0;
 	i = 0;
-	while (i < s_a->top)
+	while (av[++i])
 	{
-		ft_swap(&s_a->stack_arr[i], &s_a->stack_arr[i + 1]);
-		i++;
+		check_lkhawi(av[i]);
+		str = ft_split(av[i], ' ');
+		j = 0;
+		while (str[j])
+		{
+			if (ft_atoi(str[j]) < INT_MIN || ft_atoi(str[j]) > INT_MAX)
+				exit_err();
+			num[a++] = ft_atoi(str[j++]);
+		}
 	}
-	if (a == 1)
-		write(1, "rra\n", 4);
-}
-
-void	rrb(t_stack *s_b, int a)
-{
-	int	i;
-
-	i = 0;
-	while (i < s_b->top)
-	{
-		ft_swap(&s_b->stack_arr[i], &s_b->stack_arr[i + 1]);
-		i++;
-	}
-	if (a == 1)
-		write(1, "rrb\n", 4);
-}
-
-void	rrr(t_stack *s_a, t_stack *s_b)
-{
-	rra(s_a, 0);
-	rrb(s_b, 0);
-	write(1, "rrr\n", 4);
+	return (num);
 }

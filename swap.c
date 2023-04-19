@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/19 10:13:40 by amdouyah          #+#    #+#             */
+/*   Updated: 2023/04/19 10:14:48 by amdouyah         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_swap(int *a, int *b)
@@ -9,18 +21,18 @@ void	ft_swap(int *a, int *b)
 	*b = c;
 }
 
-void	sa(t_stack *stack, int a)
+void	sa(t_stack *s, int a)
 {
-	if (stack->top >= 0)
-			ft_swap(&stack->stack_arr[stack->top], &stack->stack_arr[stack->top - 1]);
+	if (s->top >= 0)
+		ft_swap(&s->stack_arr[s->top], &s->stack_arr[s->top - 1]);
 	if (a == 1)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *stack, int a)
+void	sb(t_stack *s, int a)
 {
-	if (stack->top >= 0)
-		ft_swap(&stack->stack_arr[stack->top], &stack->stack_arr[stack->top - 1]);
+	if (s->top >= 0)
+		ft_swap(&s->stack_arr[s->top], &s->stack_arr[s->top - 1]);
 	if (a == 1)
 		write(1, "sb\n", 3);
 }

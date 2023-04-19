@@ -6,59 +6,24 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 23:15:52 by amdouyah          #+#    #+#             */
-/*   Updated: 2023/04/19 09:43:58 by amdouyah         ###   ########.fr       */
+/*   Updated: 2023/04/19 10:49:03 by amdouyah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	counter(char **av)
+void	push_swap_sorting(t_stack *a, t_stack *b, int l)
 {
-	int		i;
-	int		j;
-	int		l;
-	char	**str;
-
-	i = 1;
-	l = 0;
-	while (av[i])
-	{
-		j = 0;
-		str = ft_split(av[i], ' ');
-		while (str[j])
-		{
-			j++;
-			l++;
-		}
-		i++;
-	}
-	return (l);
-}
-
-int	*store_variables(char **av, int l)
-{
-	int		i;
-	int		j;
-	int		a;
-	char	**str;
-	int		*num;
-
-	num = malloc(sizeof (int) * l);
-	a = 0;
-	i = 0;
-	while (av[++i])
-	{
-		check_lkhawi(av[i]);
-		str = ft_split(av[i], ' ');
-		j = 0;
-		while (str[j])
-		{
-			if (ft_atoi(str[j]) < INT_MIN || ft_atoi(str[j]) > INT_MAX)
-				exit_err();
-			num[a++] = ft_atoi(str[j++]);
-		}
-	}
-	return (num);
+	if (l == 2)
+		sort_2(a);
+	else if (l == 3)
+		sort_three(a);
+	else if (l == 4)
+		sort_four(a, b);
+	else if (l == 5)
+		sort_five(a, b);
+	else
+		range(a, b, l);
 }
 
 int	main(int ac, char **av)
@@ -81,13 +46,17 @@ int	main(int ac, char **av)
 		stack_b = allocate_stacks(stack_b, l);
 		stack_a->top = l - 1;
 		stack_b->top = -1;
-		if (l == 2)
-			sort_2(stack_a);
-		else if (l == 3)
-			sort_three(stack_a);
-		else if (l == 5)
-			sort_five(stack_a, stack_b);
-		else
-			range(stack_a, stack_b, l);
+		push_swap_sorting(stack_a, stack_b, l);
+		free_stack(stack_a, stack_b);
+		free(n);
+		while(1);
 	}
+}
+
+void	free_stack(t_stack *a, t_stack *b)
+{
+	free(a->stack_arr);
+	free(a);
+	free(b->stack_arr);
+	free(b);
 }
