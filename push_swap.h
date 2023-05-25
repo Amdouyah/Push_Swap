@@ -6,11 +6,7 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 16:01:22 by amdouyah          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2023/04/20 03:13:39 by amdouyah         ###   ########.fr       */
-=======
-/*   Updated: 2023/04/19 10:46:38 by amdouyah         ###   ########.fr       */
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +67,7 @@ int					find_max_index(int max, t_stack *b);
 void				move_num_to_top_a(t_stack *stack_a, int k);
 void				fill_index(t_stack *a, int *n, int l);
 void				free_stack(t_stack *a, t_stack *b);
-<<<<<<< HEAD
 int					sorted(t_stack *a, int l);
 void				free_2d(char **str);
-=======
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
 
 #endif

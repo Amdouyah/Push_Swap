@@ -6,11 +6,7 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 02:26:34 by amdouyah          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2023/04/20 03:15:01 by amdouyah         ###   ########.fr       */
-=======
-/*   Updated: 2023/04/19 10:35:40 by amdouyah         ###   ########.fr       */
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +42,7 @@ void	range(t_stack *stack_a, t_stack *stack_b, int l)
 	n = fill_int(stack_a, l, n);
 	sort_a(n, l);
 	fill_index(stack_a, n, l);
-<<<<<<< HEAD
 	free(n);
-=======
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
 	sort_range(stack_a, stack_b, l);
 }
 

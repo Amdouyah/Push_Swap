@@ -6,11 +6,7 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 21:22:19 by amdouyah          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2023/04/20 03:14:53 by amdouyah         ###   ########.fr       */
-=======
-/*   Updated: 2023/04/19 10:36:06 by amdouyah         ###   ########.fr       */
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +44,6 @@ int	get_max(t_stack *b)
 	return (max);
 }
 
-<<<<<<< HEAD
-=======
-void	move_num_to_top_a(t_stack *stack_a, int k)
-{
-	while (stack_a->stack_arr[stack_a->top] != k)
-		ra(stack_a, 1);
-}
-
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
 int	find_max_index(int max, t_stack *b)
 {
 	int	i;
@@ -90,10 +77,7 @@ int	counter(char **av)
 			l++;
 		}
 		i++;
-<<<<<<< HEAD
 		free_2d(str);
-=======
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
 	}
 	return (l);
 }

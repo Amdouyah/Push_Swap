@@ -6,11 +6,7 @@
 /*   By: amdouyah <amdouyah@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 10:28:27 by amdouyah          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2023/04/20 03:13:34 by amdouyah         ###   ########.fr       */
-=======
-/*   Updated: 2023/04/19 10:28:40 by amdouyah         ###   ########.fr       */
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +34,6 @@ int	*store_variables(char **av, int l)
 				exit_err();
 			num[a++] = ft_atoi(str[j++]);
 		}
-<<<<<<< HEAD
 		free_2d(str);
 	}
 	return (num);
@@ -59,8 +54,3 @@ void	move_num_to_top_a(t_stack *stack_a, int k)
 	while (stack_a->stack_arr[stack_a->top] != k)
 		ra(stack_a, 1);
 }
-=======
-	}
-	return (num);
-}
->>>>>>> 4aaae19bef3493e8a0d659121fcc99bcea71d576
